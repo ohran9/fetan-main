@@ -24,7 +24,7 @@ jobs:
       - run:
           name: Assemble Debug Build
           command: ./gradlew assembleDebug
-      # Store the APK file
+      # Store the APK fileq
       - store_artifacts:
           path: app/build/outputs/apk/debug/app-debug.apk
           destination: apks/fetan-debug.apk
