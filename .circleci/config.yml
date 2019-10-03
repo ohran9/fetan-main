@@ -13,6 +13,9 @@ jobs:
           key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
       # Instruct Gradle to download all the dependencies, such as libraries
       - run:
+          name: Fix gradlew permissions
+          command: chmod a+x gradlew
+      - run:
           name: Download Dependencies
           command: ./gradlew androidDependencies
       # Save the downloaded Gradle info to a cache to speed-up future builds
@@ -24,7 +27,7 @@ jobs:
       - run:
           name: Assemble Debug Build
           command: ./gradlew assembleDebug
-      # Store the APK fileq
+      # Store the APK file
       - store_artifacts:
           path: app/build/outputs/apk/debug/app-debug.apk
           destination: apks/fetan-debug.apk

@@ -20,5 +20,6 @@ public class WelcomeActivity extends BaseActivity {
     public void openHome(View v) {
         Intent intent = new Intent(this, HomeActivity.class);
         startActivity(intent);
+        finish();
     }
 }
